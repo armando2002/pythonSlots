@@ -1,9 +1,11 @@
-#sets max lines constant for bars
+# sets max lines constant for bars
+
 MAX_LINES = 3
 MAX_BET = 100
 MIN_BET = 1
 
-#set initial deposit
+
+# set initial deposit
 def deposit():
     while True:
         amount = input("What would you like to deposit? $")
@@ -18,7 +20,8 @@ def deposit():
 
     return amount
 
-#ask for number of lines to bet
+
+# ask for number of lines to bet
 def get_number_of_lines():
     while True:
         lines = input("Enter the number of lines to bet on (1-" + str(MAX_LINES) + ")? ")
@@ -32,6 +35,7 @@ def get_number_of_lines():
             print("Please enter a number.")
 
     return lines
+
 
 def get_bet():
     while True:
@@ -47,21 +51,23 @@ def get_bet():
 
     return amount
 
-#main function, restarts game
+
+# main function, restarts game
 def main():
     balance = deposit()
     lines = get_number_of_lines()
 
-    #get bet and check that bet is within balance
+    # get bet and check that bet is within balance
     while True:
         bet = get_bet()
         total_bet = bet * lines
 
-        #if bet > balance, show error and loop again
+        # if bet > balance, show error and loop again
         if total_bet > balance:
             print(f"You do not have enough to bet that amount, your current balance is ${balance}")
         else:
             break
     print(f"You are betting ${bet} on {lines} lines. Total bet is ${total_bet}")
+
 
 main()
